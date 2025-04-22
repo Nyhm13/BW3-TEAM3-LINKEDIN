@@ -1,0 +1,54 @@
+/* Experiences.css */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    color: #333;
+  }
+  
+  .experience-item {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+  }
+  
+  .experience-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 15px;
+  }
+  
+  .experience-item h5 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .experience-item p {
+    font-size: 0.9rem;
+    color: #777;
+  }
+  
+  .edit-icon {
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 10px;
+   
+  }
+  
+  .modal .form-group label {
+    font-weight: bold;
+  }
+  
+  .modal .form-control {
+    margin-bottom: 1rem;
+  }
+  
+  .modal .d-flex {
+    justify-content: space-between;
+  }
+  
