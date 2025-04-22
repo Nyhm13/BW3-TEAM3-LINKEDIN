@@ -11,11 +11,9 @@ function App() {
   return (
     <>
       <header></header>
-      <main>
-        <Sidebar />
 
-        <ProfileCard />
-      </main>
+      <ProfileCard />
+
       <footer></footer>
     </>
   );

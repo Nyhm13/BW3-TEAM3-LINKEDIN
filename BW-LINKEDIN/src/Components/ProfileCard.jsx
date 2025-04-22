@@ -18,6 +18,7 @@ import {
   Pencil,
 } from "lucide-react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Sidebar from "./Sidebar";
 
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc";
@@ -56,9 +57,9 @@ const ProfileCard = () => {
   if (!profile) return null;
 
   return (
-    <Container fluid className="d-flex justify-content-center">
+    <Container className="mt-5">
       <Row>
-        <Col xs={12} sm={12} md={9} lg={9}>
+        <Col sm={12} lg={9}>
           <Card className="profile-card shadow-sm rounded-3 overflow-hidden mb-3 flex-grow-1">
             <div className="profile-cover position-relative">
               <img
@@ -158,11 +159,7 @@ const ProfileCard = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col xs={12} sm={12} md={3} lg={3}>
-          <div>
-            <h1>ASIDE</h1>
-          </div>
-        </Col>
+        <Sidebar />
       </Row>
       <Modal
         show={showModal}

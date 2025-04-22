@@ -51,7 +51,6 @@ const Sidebar = () => {
         console.log("DATI DALLA FETCH", data);
         setProfili(data);
         setSimilarProfiles(getRandomProfiles(data, 5));
-
         setLoading(false);
       })
       .catch((error) => {
