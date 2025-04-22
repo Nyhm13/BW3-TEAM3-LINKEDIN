@@ -1,9 +1,10 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
 import Experiences from "./Components/Experiences";
 import { useState } from "react";
+import Sidebar from "./Components/Sidebar";
+import ProfileCard from "./Components/ProfileCard";
 
 function App() {
   // se l'id è quello dell'utente autenticato ti permetterà di modificare altrimenti no
@@ -29,6 +30,9 @@ function App() {
           authenticatedUserId={authenticatedUserId} 
         />
       </main>
+      <header></header>
+
+      <ProfileCard />
 
       <footer></footer>
     </>
