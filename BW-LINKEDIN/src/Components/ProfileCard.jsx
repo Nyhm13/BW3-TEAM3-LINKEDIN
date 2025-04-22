@@ -68,7 +68,7 @@ const ProfileCard = () => {
               />
               <Pencil
                 size={20}
-                className="position-absolute top-0 end-0 m-2 bg-white rounded-circle p-1 shadow-sm pointer bg-primary"
+                className="icon position-absolute top-0 end-0 m-2 bg-white rounded-circle p-1 shadow-sm pointer bg-primary"
               />
               <img
                 src={profile.image || "https://www.placebears.com/400/400"}
@@ -80,7 +80,7 @@ const ProfileCard = () => {
             <Card.Body className="pt-5">
               <h5 className="mb-0 d-flex">
                 {profile.name} {profile.surname}
-                <Pencil size={18} className="text-muted pointer ms-auto" />
+                <Pencil size={18} className="icon text-muted pointer ms-auto" />
               </h5>
 
               <div className="text-primary badge-verifica d-flex align-items-center">
