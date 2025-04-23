@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState, useEffect } from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
 import {
   Navbar,
   Form,
@@ -7,14 +7,14 @@ import {
   Nav,
   Container,
   NavDropdown,
-} from "react-bootstrap";
+} from "react-bootstrap"
 import {
   HouseFill,
   PeopleFill,
   BriefcaseFill,
   ChatDotsFill,
   BellFill,
-} from "react-bootstrap-icons";
+} from "react-bootstrap-icons"
 
 const NavbarLink = function ({ userId }) {
   // const Token =
@@ -77,35 +77,35 @@ const NavbarLink = function ({ userId }) {
           <Nav className="ms-auto d-flex align-items-center flex-row flex-wrap justify-content-end">
             <Nav.Item className="text-center mx-2">
               <HouseFill size={20} />
-              <div style={{ fontSize: '0.8rem' }}>Home</div>
+              <div style={{ fontSize: "0.8rem" }}>Home</div>
             </Nav.Item>
             <Nav.Item className="text-center mx-2">
               <PeopleFill size={20} />
-              <div style={{ fontSize: '0.8rem' }}>Rete</div>
+              <div style={{ fontSize: "0.8rem" }}>Rete</div>
             </Nav.Item>
             <Nav.Item className="text-center mx-2">
               <BriefcaseFill size={20} />
-              <div style={{ fontSize: '0.8rem' }}>Lavoro</div>
+              <div style={{ fontSize: "0.8rem" }}>Lavoro</div>
             </Nav.Item>
             <Nav.Item className="text-center mx-2">
               <ChatDotsFill size={20} />
-              <div style={{ fontSize: '0.8rem' }}>Messaggistica</div>
+              <div style={{ fontSize: "0.8rem" }}>Messaggistica</div>
             </Nav.Item>
             <Nav.Item className="text-center mx-2">
               <BellFill size={20} />
-              <div style={{ fontSize: '0.8rem' }}>Notifiche</div>
+              <div style={{ fontSize: "0.8rem" }}>Notifiche</div>
             </Nav.Item>
             <NavDropdown
               title={
                 <span className="d-inline-flex align-items-center">
                   <img
-                    src="https://via.placeholder.com/30"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjPkfTSbix4g4EPv42EinPjh0XLddeKySRbA&s"
                     alt="Tu"
                     width="30"
                     height="30"
                     className="rounded-circle me-1"
                   />
-                  <span style={{ fontSize: '0.8rem' }}>Tu</span>
+                  <span style={{ fontSize: "0.8rem" }}>Tu</span>
                 </span>
               }
               id="nav-dropdown-profile"
@@ -121,7 +121,7 @@ const NavbarLink = function ({ userId }) {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default NavbarLink;
+export default NavbarLink
