@@ -1,42 +1,138 @@
-/* #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/*Per il body*/
+body {
+  background-color: #e2e3e5 !important;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* CSS PER EXPERIENCES*/
+
+.experience-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #e0e0e0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.experience-item img {
+  width: 40px;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-right: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.experience-item .d-flex {
+  align-items: start;
 }
 
-.card {
-  padding: 2em;
+.experience-item h5 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
 }
 
-.read-the-docs {
+.experience-item p {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.experience-item .description {
+  font-size: 0.9rem;
+}
+
+.experience-item .area {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+.icon-style {
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.edit-icon {
+  cursor: pointer;
+  font-size: 1.5rem;
+  margin-left: auto;
+  align-self: start;
   color: #888;
-} */
+}
+
+.modal-title {
+  font-weight: bold;
+}
+
+/* profilecard css */
+.profile-card .btn {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.profile-cover .cover-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  position: absolute;
+  top: 90px;
+  left: 24px;
+}
+
+.badge-verifica {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.school-row .school-icon {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  margin-right: 0.5rem;
+}
+
+.job-modal .modal-content {
+  border-radius: 12px;
+  padding: 1rem;
+}
+
+.modal-profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+  margin-bottom: 0.5rem;
+}
+
+.modal-section {
+  margin-bottom: 1rem;
+}
+
+.modal-section strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: #000;
+}
+
+.modal-section p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+.icon {
+  transition: color 0.2s ease, background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.icon:hover {
+  color: var(--bs-primary);
+  background-color: rgba(13, 110, 253, 0.1);
+}
+
+.img-side {
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  width: 50px;
+}
