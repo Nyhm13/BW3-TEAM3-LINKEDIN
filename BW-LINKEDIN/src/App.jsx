@@ -7,6 +7,8 @@ import Sidebar from "./Components/Sidebar";
 import ProfileCard from "./Components/ProfileCard";
 import NavbarLink from "./Components/NavbarLink";
 import Footer from "./Components/Footer";
+import StatiComponents from "./Components/StatiComponents";
+import { Container, Row, Col } from "react-bootstrap";
 
 function App() {
   // se l'id è quello dell'utente autenticato ti permetterà di modificare altrimenti no
@@ -29,12 +31,22 @@ function App() {
       </header>
 
       <main>
-        <Experiences
-          userId={selectedUserId}
-          authenticatedUserId={authenticatedUserId}
-        />
+        <Container className="d-flex mt-5 ">
+          <Row>
+            <Col sm={12} lg={9}>
+              <ProfileCard />
+              <Experiences
+                userId={selectedUserId}
+                authenticatedUserId={authenticatedUserId}
+              />
+              <StatiComponents />
+            </Col>
+            <Col sm={12} lg={3}>
+              <Sidebar />
+            </Col>
+          </Row>
+        </Container>
       </main>
-      <ProfileCard />
       <Footer />
     </>
   );

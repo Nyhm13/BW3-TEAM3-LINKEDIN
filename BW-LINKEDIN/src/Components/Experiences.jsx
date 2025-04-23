@@ -3,9 +3,10 @@ import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import experienceIcon from "../assets/linkedin.jpg";
 
 const Experiences = ({ userId, authenticatedUserId }) => {
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3NjQyY2Q0NTE4MTAwMTVjZTgzZDYiLCJpYXQiOjE3NDUzMTczMTYsImV4cCI6MTc0NjUyNjkxNn0.nHOAC5onf9T1D7p9PYxqLaTg_SDC8fL1tpt-CaUb_eY" //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
-  const [experiences, setExperiences] = useState([])
-  const [showModal, setShowModal] = useState(false)
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3NjQyY2Q0NTE4MTAwMTVjZTgzZDYiLCJpYXQiOjE3NDUzMTczMTYsImV4cCI6MTc0NjUyNjkxNn0.nHOAC5onf9T1D7p9PYxqLaTg_SDC8fL1tpt-CaUb_eY"; //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
+  const [experiences, setExperiences] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     role: "",
     company: "",
@@ -122,7 +123,7 @@ const Experiences = ({ userId, authenticatedUserId }) => {
   };
 
   return (
-    <div className="container mt-4 ">
+    <div className="mt-4 bg-white border rounded-3 p-3 mb-4 ">
       <div className="d-flex justify-content-between align-items-center">
         <h2>Esperienze</h2>
         {userId === authenticatedUserId && (
