@@ -24,10 +24,15 @@ function App() {
     setSelectedUserId(e.target.value);
   };
 
+  const handleSegui = (id) => {
+    setSelectedUserId(id);
+    console.log("ID selezionato:", id);
+  };
+
   return (
     <>
       <header>
-        <NavbarLink />
+        <NavbarLink userId={selectedUserId} />
       </header>
 
       <main>
@@ -42,7 +47,7 @@ function App() {
               <StatiComponents />
             </Col>
             <Col sm={12} lg={3}>
-              <Sidebar />
+              <Sidebar onSegui={handleSegui} />
             </Col>
           </Row>
         </Container>

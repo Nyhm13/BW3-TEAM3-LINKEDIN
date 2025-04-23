@@ -8,7 +8,7 @@ import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 
-const Sidebar = () => {
+const Sidebar = ({ onSegui }) => {
   const Token =
     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
 
@@ -31,6 +31,13 @@ const Sidebar = () => {
   const getRandomProfiles = (profiles, count) => {
     const shuffled = [...profiles].sort(() => 0.5 - Math.random()); // Mescola l'array
     return shuffled.slice(0, count); // Prendi i primi `count` elementi
+  };
+
+  //  funzione per passare l`id al componente app
+  const handleSeguiClick = (id) => {
+    if (onSegui) {
+      onSegui(id);
+    }
   };
 
   const fetchData = () => {
@@ -80,7 +87,7 @@ const Sidebar = () => {
             <span className=" fw-bold">Profilo pubblico e URL</span>
             <i className="bi bi-pencil fs-4"></i>
           </div>
-          <p>www.linkedin.com/in/ioan-octavian-radulescu-41a7ba253</p>
+          <p>www.linkedin.com/in/TEAM3-CADIAMO-MALATI41a7ba253</p>
         </div>
       </div>
       {/* INIZIO SECONDA SEZIONE */}
@@ -188,6 +195,7 @@ const Sidebar = () => {
                       <Button
                         className="mb-3 rounded-pill px-4 py-1"
                         variant="outline-secondary"
+                        onClick={() => handleSeguiClick(obj._id)}
                       >
                         <i className="bi bi-plus"></i> Segui
                       </Button>
@@ -234,6 +242,7 @@ const Sidebar = () => {
                           <Button
                             className="mb-4 w-50 rounded-5"
                             variant="outline-secondary"
+                            onClick={() => handleSeguiClick(obj._id)}
                           >
                             <i className="bi bi-plus"></i>
                             Segui

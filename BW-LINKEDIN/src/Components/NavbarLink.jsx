@@ -1,16 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Form, FormControl, Nav, Container, NavDropdown } from "react-bootstrap";
-import { HouseFill, PeopleFill, BriefcaseFill, ChatDotsFill, BellFill } from 'react-bootstrap-icons';
+import {
+  Navbar,
+  Form,
+  FormControl,
+  Nav,
+  Container,
+  NavDropdown,
+} from "react-bootstrap";
+import {
+  HouseFill,
+  PeopleFill,
+  BriefcaseFill,
+  ChatDotsFill,
+  BellFill,
+} from "react-bootstrap-icons";
 
-const NavbarLink = function() {
+const NavbarLink = function ({ userId }) {
+  const Token =
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
+
+  const URL = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+
+  const [user, setUser] = useState(null);
+
+  const fetchUser = () => {
+    fetch(URL, {
+      method: "GET",
+      headers: {
+        Authorization: Token,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("ERRORE");
+        }
+      })
+      .then((data) => {
+        console.log("DATI DALLA FETCH navbar", data);
+        setUser(data);
+      })
+      .catch((error) => {
+        console.log("ERRORE NELLA FETCH", error);
+      });
+  };
+
+  useEffect(() => {
+    fetchUser();
+  }, [userId]);
+
   return (
     <Navbar bg="light" className="px-3 py-2 shadow-sm" expand="lg">
       <Container fluid className="d-flex align-items-center">
         {/* LinkedIn logo */}
         <Navbar.Brand href="#">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            src={user ? user.image : "https://via.placeholder.com/30"}
             alt="LinkedIn"
             width="30"
             height="30"
@@ -26,35 +73,35 @@ const NavbarLink = function() {
         <Nav className="ms-auto d-flex align-items-center">
           <Nav.Item className="text-center mx-3">
             <HouseFill size={20} />
-            <div style={{ fontSize: '0.8rem' }}>Home</div>
+            <div style={{ fontSize: "0.8rem" }}>Home</div>
           </Nav.Item>
           <Nav.Item className="text-center mx-3">
             <PeopleFill size={20} />
-            <div style={{ fontSize: '0.8rem' }}>Rete</div>
+            <div style={{ fontSize: "0.8rem" }}>Rete</div>
           </Nav.Item>
           <Nav.Item className="text-center mx-3">
             <BriefcaseFill size={20} />
-            <div style={{ fontSize: '0.8rem' }}>Lavoro</div>
+            <div style={{ fontSize: "0.8rem" }}>Lavoro</div>
           </Nav.Item>
           <Nav.Item className="text-center mx-3">
             <ChatDotsFill size={20} />
-            <div style={{ fontSize: '0.8rem' }}>Messaggistica</div>
+            <div style={{ fontSize: "0.8rem" }}>Messaggistica</div>
           </Nav.Item>
           <Nav.Item className="text-center mx-3">
             <BellFill size={20} />
-            <div style={{ fontSize: '0.8rem' }}>Notifiche</div>
+            <div style={{ fontSize: "0.8rem" }}>Notifiche</div>
           </Nav.Item>
           <NavDropdown
             title={
               <span className="d-inline-flex align-items-center">
                 <img
-                  src="https://via.placeholder.com/30"
+                  src={user ? user.image : "https://via.placeholder.com/30"}
                   alt="Tu"
                   width="30"
                   height="30"
                   className="rounded-circle me-1"
                 />
-                <span style={{ fontSize: '0.8rem' }}>Tu</span>
+                <span style={{ fontSize: "0.8rem" }}>Tu</span>
               </span>
             }
             id="nav-dropdown-profile"
@@ -70,6 +117,6 @@ const NavbarLink = function() {
       </Container>
     </Navbar>
   );
-}
+};
 
-export default NavbarLink
+export default NavbarLink;
