@@ -1,16 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Form, FormControl, Nav, Container, NavDropdown } from "react-bootstrap";
-import { HouseFill, PeopleFill, BriefcaseFill, ChatDotsFill, BellFill } from 'react-bootstrap-icons';
+import {
+  Navbar,
+  Form,
+  FormControl,
+  Nav,
+  Container,
+  NavDropdown,
+} from "react-bootstrap";
+import {
+  HouseFill,
+  PeopleFill,
+  BriefcaseFill,
+  ChatDotsFill,
+  BellFill,
+} from "react-bootstrap-icons";
 
-const NavbarLink = function() {
+const NavbarLink = function ({ userId }) {
+  // const Token =
+  //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
+
+  // const URL = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+
+  // const [user, setUser] = useState(null);
+
+  // const fetchUser = () => {
+  //   fetch(URL, {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: Token,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         return response.json();
+  //       } else {
+  //         throw new Error("ERRORE");
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log("DATI DALLA FETCH navbar", data);
+  //       setUser(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("ERRORE NELLA FETCH", error);
+  //     });
+  // };
+
+  // useEffect(() => {
+  //   fetchUser();
+  // }, [userId]);
+
   return (
     <Navbar bg="light" expand="lg" className="px-3 py-2 shadow-sm">
       <Container fluid>
         {/* LinkedIn logo */}
         <Navbar.Brand href="#">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/800px-LinkedIn_icon.svg.png"
             alt="LinkedIn"
             width="30"
             height="30"
@@ -75,6 +122,6 @@ const NavbarLink = function() {
       </Container>
     </Navbar>
   );
-}
+};
 
-export default NavbarLink
+export default NavbarLink;

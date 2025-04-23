@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
-import { Button, Form, Modal, Spinner } from "react-bootstrap"
-import experienceIcon from "../assets/linkedin.jpg"
+import { useEffect, useState } from "react";
+import { Button, Form, Modal, Spinner } from "react-bootstrap";
+import experienceIcon from "../assets/linkedin.jpg";
 
 const Experiences = ({ userId, authenticatedUserId }) => {
-  const token = "INSERITE_IL_VOSTRO_BEARER_TOKEN" //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4YzZmOTk1ODc4ZjAwMTVmNGExZDUiLCJpYXQiOjE3NDU0MDU2ODksImV4cCI6MTc0NjYxNTI4OX0.iBpPVV0hN0e7TTBVgJCa-YeUaqzk_gJ1INGFfROYK1k" //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
   const [experiences, setExperiences] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [formData, setFormData] = useState({
@@ -13,14 +13,14 @@ const Experiences = ({ userId, authenticatedUserId }) => {
     endDate: "",
     description: "",
     area: "",
-  })
-  const [isEditing, setIsEditing] = useState(false)
-  const [editingId, setEditingId] = useState(null)
-  const [loading, setLoading] = useState(false)
-  const [showEditIcons, setShowEditIcons] = useState(false)
+  });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [showEditIcons, setShowEditIcons] = useState(false);
 
   const fetchExperiences = () => {
-    setLoading(true)
+    setLoading(true);
     fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
       {
@@ -30,16 +30,16 @@ const Experiences = ({ userId, authenticatedUserId }) => {
       }
     )
       .then((res) => {
-        if (!res.ok) throw new Error("Errore nel fetch")
-        return res.json()
+        if (!res.ok) throw new Error("Errore nel fetch");
+        return res.json();
       })
       .then((data) => setExperiences(data))
       .catch((err) => console.error(err))
-      .finally(() => setLoading(false))
-  }
+      .finally(() => setLoading(false));
+  };
 
   useEffect(() => {
-    if (userId) fetchExperiences()
+    if (userId) fetchExperiences();
 
     const fetchAllProfiles = () => {
       fetch("https://striveschool-api.herokuapp.com/api/profile/", {
@@ -48,17 +48,17 @@ const Experiences = ({ userId, authenticatedUserId }) => {
         },
       })
         .then((res) => {
-          if (!res.ok) throw new Error("Errore nel fetch dei profili")
-          return res.json()
+          if (!res.ok) throw new Error("Errore nel fetch dei profili");
+          return res.json();
         })
         .then((data) => {
-          console.log("Lista profili disponibili:", data)
+          console.log("Lista profili disponibili:", data);
         })
-        .catch((err) => console.error(err))
-    }
+        .catch((err) => console.error(err));
+    };
 
-    fetchAllProfiles()
-  }, [userId])
+    fetchAllProfiles();
+  }, [userId]);
 
   const handleDelete = () => {
     fetch(
@@ -71,19 +71,19 @@ const Experiences = ({ userId, authenticatedUserId }) => {
       }
     )
       .then((res) => {
-        if (!res.ok) throw new Error("Errore nella cancellazione")
-        fetchExperiences()
-        setShowModal(false)
+        if (!res.ok) throw new Error("Errore nella cancellazione");
+        fetchExperiences();
+        setShowModal(false);
       })
-      .catch((err) => console.error(err))
-  }
+      .catch((err) => console.error(err));
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    const method = isEditing ? "PUT" : "POST"
+    e.preventDefault();
+    const method = isEditing ? "PUT" : "POST";
     const url = isEditing
       ? `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences/${editingId}`
-      : `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`
+      : `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`;
 
     fetch(url, {
       method,
@@ -94,12 +94,12 @@ const Experiences = ({ userId, authenticatedUserId }) => {
       body: JSON.stringify(formData),
     })
       .then((res) => {
-        if (!res.ok) throw new Error("Errore nella richiesta")
-        return res.json()
+        if (!res.ok) throw new Error("Errore nella richiesta");
+        return res.json();
       })
       .then(() => {
-        fetchExperiences()
-        setShowModal(false)
+        fetchExperiences();
+        setShowModal(false);
         setFormData({
           role: "",
           company: "",
@@ -107,22 +107,22 @@ const Experiences = ({ userId, authenticatedUserId }) => {
           endDate: "",
           description: "",
           area: "",
-        })
-        setIsEditing(false)
-        setEditingId(null)
+        });
+        setIsEditing(false);
+        setEditingId(null);
       })
-      .catch((err) => console.error(err))
-  }
+      .catch((err) => console.error(err));
+  };
 
   const handleEdit = (exp) => {
-    setFormData(exp)
-    setIsEditing(true)
-    setEditingId(exp._id)
-    setShowModal(true)
-  }
+    setFormData(exp);
+    setIsEditing(true);
+    setEditingId(exp._id);
+    setShowModal(true);
+  };
 
   return (
-    <div className="container mt-4 ">
+    <div className="mt-4 bg-white border rounded-3 p-3 mb-4">
       <div className="d-flex justify-content-between align-items-center">
         <h2>Esperienze</h2>
         {userId === authenticatedUserId && (
@@ -130,8 +130,8 @@ const Experiences = ({ userId, authenticatedUserId }) => {
             <i
               className="bi bi-plus-circle icon-style"
               onClick={() => {
-                setShowModal(true)
-                setIsEditing(false)
+                setShowModal(true);
+                setIsEditing(false);
                 setFormData({
                   role: "",
                   company: "",
@@ -139,7 +139,7 @@ const Experiences = ({ userId, authenticatedUserId }) => {
                   endDate: "",
                   description: "",
                   area: "",
-                })
+                });
               }}
             ></i>
             <i
@@ -271,7 +271,7 @@ const Experiences = ({ userId, authenticatedUserId }) => {
         </Form>
       </Modal>
     </div>
-  )
-}
+  );
+};
 
-export default Experiences
+export default Experiences;

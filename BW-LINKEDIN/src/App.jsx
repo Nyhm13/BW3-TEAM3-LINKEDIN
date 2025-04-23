@@ -1,46 +1,58 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import 'bootstrap-icons/font/bootstrap-icons.css';
-import Experiences from "./Components/Experiences";
+import "bootstrap-icons/font/bootstrap-icons.css";
 import { useState } from "react";
-import Sidebar from "./Components/Sidebar";
-import ProfileCard from "./Components/ProfileCard";
-import NavbarLink from "./Components/NavbarLink";
-import Footer from "./Components/Footer"
+import { Container, Row, Col } from "react-bootstrap";
 
+import NavbarLink from "./Components/NavbarLink";
+import ProfileCard from "./Components/ProfileCard";
+import Experiences from "./Components/Experiences";
+import StatiComponents from "./Components/StatiComponents";
+import Sidebar from "./Components/Sidebar";
+import Footer from "./Components/Footer";
 
 function App() {
-  // se l'id è quello dell'utente autenticato ti permetterà di modificare altrimenti no
   const [selectedUserId, setSelectedUserId] = useState(
-    "6807642cd451810015ce83d6"
-  ) // Imposta un ID di default o uno iniziale
-  // ID dell'utente autenticato
-  const [authenticatedUserId, setAuthenticatedUserId] = useState(
-    "6807642cd451810015ce83d6"
-  ) // Imposta l'ID dell'utente autenticato
+    "6808c6f995878f0015f4a1d5"
+  );
+  const [authenticatedUserId] = useState("6808c6f995878f0015f4a1d5");
 
   const handleUserSearch = (e) => {
-    setSelectedUserId(e.target.value)
-  }
+    setSelectedUserId(e.target.value);
+  };
+
+  const handleSegui = (id) => {
+    setSelectedUserId(id);
+    console.log("ID selezionato:", id);
+  };
 
   return (
     <>
       <header>
-        <NavbarLink />
+        <NavbarLink userId={selectedUserId} />
       </header>
 
       <main>
-        <Experiences
-          userId={selectedUserId}
-          authenticatedUserId={authenticatedUserId}
-        />
+        <Container className="d-flex mt-5">
+          <Row>
+            <Col sm={12} lg={9}>
+              <ProfileCard selectedUserId={selectedUserId} />
+              <Experiences
+                userId={selectedUserId}
+                authenticatedUserId={authenticatedUserId}
+              />
+              <StatiComponents />
+            </Col>
+            <Col sm={12} lg={3}>
+              <Sidebar onSegui={handleSegui} />
+            </Col>
+          </Row>
+        </Container>
       </main>
-
-      <ProfileCard />
 
       <Footer />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
