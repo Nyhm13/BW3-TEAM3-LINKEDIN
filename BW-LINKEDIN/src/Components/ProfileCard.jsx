@@ -1,11 +1,5 @@
-import React, { useEffect, useState } from "react";
-import {
-  Button,
-  Card,
-  Spinner,
-  Alert,
-  Modal,
-} from "react-bootstrap";
+import React, { useEffect, useState } from "react"
+import { Button, Card, Spinner, Alert, Modal } from "react-bootstrap"
 import {
   ShieldCheck,
   GraduationCap,
@@ -13,59 +7,69 @@ import {
   MapPin,
   Briefcase,
   Pencil,
-} from "lucide-react";
-import "bootstrap/dist/css/bootstrap.min.css";
+} from "lucide-react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import EditProfileImageModal from "./EditProfileImageModal"
 
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc"
 
 const ProfileCard = ({ selectedUserId }) => {
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
+  const [profile, setProfile] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [showModal, setShowModal] = useState(false)
+  const [showImageModal, setShowImageModal] = useState(false)
+  const loggedInUserId = "6808c6f995878f0015f4a1d5"
+  console.log("Selected User ID:", selectedUserId)
   useEffect(() => {
-    setLoading(true);
-    fetch(`https://striveschool-api.herokuapp.com/api/profile/${selectedUserId}`, {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    setLoading(true)
+    fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/${selectedUserId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          return response.json()
         } else {
-          throw new Error("Errore nel recupero del profilo");
+          throw new Error("Errore nel recupero del profilo")
         }
       })
       .then((data) => {
-        setProfile(data);
-        setLoading(false);
+        setProfile(data)
+        setLoading(false)
       })
       .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, [selectedUserId]);  
+        setError(err.message)
+        setLoading(false)
+      })
+  }, [selectedUserId])
 
-  if (loading) return <Spinner animation="border" variant="primary" />;
-  if (error) return <Alert variant="danger">{error}</Alert>;
-  if (!profile) return null;
+  if (loading) return <Spinner animation="border" variant="primary" />
+  if (error) return <Alert variant="danger">{error}</Alert>
+  if (!profile) return null
 
   return (
     <>
       <Card className="profile-card shadow-sm rounded-3 overflow-hidden mb-3 flex-grow-1">
         <div className="profile-cover position-relative">
           <img
-            src="https://www.placecats.com/400/400"
+            src="https://www.euroformation.it/wp-content/uploads/2024/09/evoluzione_lavoro-460x202.webp"
             alt="cover"
             className="cover-img"
           />
-          <Pencil
-            size={20}
-            className="icon position-absolute top-0 end-0 m-2 bg-white rounded-circle p-1 shadow-sm pointer bg-primary"
-          />
+          {selectedUserId === loggedInUserId && (
+            <Pencil
+              size={20}
+              className="icon position-absolute top-0 end-0 m-2 bg-white rounded-circle p-1 shadow-sm pointer bg-primary"
+              onClick={() => setShowImageModal(true)}
+            />
+          )}
+
           <img
             src={profile.image || "https://www.placebears.com/400/400"}
             alt={`${profile.name} ${profile.surname}`}
@@ -209,8 +213,17 @@ const ProfileCard = ({ selectedUserId }) => {
           </Button>
         </Modal.Footer>
       </Modal>
+      {selectedUserId === loggedInUserId && (
+        <EditProfileImageModal
+          show={showImageModal}
+          onClose={() => setShowImageModal(false)}
+          userId={selectedUserId}
+          token={token}
+          onUploadSuccess={(updated) => setProfile(updated)}
+        />
+      )}
     </>
-  );
-};
+  )
+}
 
-export default ProfileCard;
+export default ProfileCard
