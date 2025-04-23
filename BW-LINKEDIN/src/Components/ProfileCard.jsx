@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { Button, Card, Spinner, Alert, Modal } from "react-bootstrap"
+import React, { useEffect, useState } from "react";
+import { Button, Card, Spinner, Alert, Modal } from "react-bootstrap";
 import {
   ShieldCheck,
   GraduationCap,
@@ -7,23 +7,24 @@ import {
   MapPin,
   Briefcase,
   Pencil,
-} from "lucide-react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import EditProfileImageModal from "./EditProfileImageModal"
+} from "lucide-react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import EditProfileImageModal from "./EditProfileImageModal";
+import CustomSpinner from "./CustomSpinner";
 
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc";
 
 const ProfileCard = ({ selectedUserId }) => {
-  const [profile, setProfile] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [showModal, setShowModal] = useState(false)
-  const [showImageModal, setShowImageModal] = useState(false)
-  const loggedInUserId = "6808c6f995878f0015f4a1d5"
-  console.log("Selected User ID:", selectedUserId)
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const loggedInUserId = "6808c6f995878f0015f4a1d5";
+  console.log("Selected User ID:", selectedUserId);
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${selectedUserId}`,
       {
@@ -34,24 +35,24 @@ const ProfileCard = ({ selectedUserId }) => {
     )
       .then((response) => {
         if (response.ok) {
-          return response.json()
+          return response.json();
         } else {
-          throw new Error("Errore nel recupero del profilo")
+          throw new Error("Errore nel recupero del profilo");
         }
       })
       .then((data) => {
-        setProfile(data)
-        setLoading(false)
+        setProfile(data);
+        setLoading(false);
       })
       .catch((err) => {
-        setError(err.message)
-        setLoading(false)
-      })
-  }, [selectedUserId])
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [selectedUserId]);
 
-  if (loading) return <Spinner animation="border" variant="primary" />
-  if (error) return <Alert variant="danger">{error}</Alert>
-  if (!profile) return null
+  if (loading) return <CustomSpinner />;
+  if (error) return <Alert variant="danger">{error}</Alert>;
+  if (!profile) return null;
 
   return (
     <>
@@ -223,7 +224,7 @@ const ProfileCard = ({ selectedUserId }) => {
         />
       )}
     </>
-  )
-}
+  );
+};
 
-export default ProfileCard
+export default ProfileCard;
