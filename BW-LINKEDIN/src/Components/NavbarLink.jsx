@@ -17,39 +17,39 @@ import {
 } from "react-bootstrap-icons";
 
 const NavbarLink = function ({ userId }) {
-  const Token =
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
+  // const Token =
+  //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
 
-  const URL = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
+  // const URL = `https://striveschool-api.herokuapp.com/api/profile/${userId}`;
 
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
-  const fetchUser = () => {
-    fetch(URL, {
-      method: "GET",
-      headers: {
-        Authorization: Token,
-      },
-    })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error("ERRORE");
-        }
-      })
-      .then((data) => {
-        console.log("DATI DALLA FETCH navbar", data);
-        setUser(data);
-      })
-      .catch((error) => {
-        console.log("ERRORE NELLA FETCH", error);
-      });
-  };
+  // const fetchUser = () => {
+  //   fetch(URL, {
+  //     method: "GET",
+  //     headers: {
+  //       Authorization: Token,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       if (response.ok) {
+  //         return response.json();
+  //       } else {
+  //         throw new Error("ERRORE");
+  //       }
+  //     })
+  //     .then((data) => {
+  //       console.log("DATI DALLA FETCH navbar", data);
+  //       setUser(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log("ERRORE NELLA FETCH", error);
+  //     });
+  // };
 
-  useEffect(() => {
-    fetchUser();
-  }, [userId]);
+  // useEffect(() => {
+  //   fetchUser();
+  // }, [userId]);
 
   return (
     <Navbar bg="light" className="px-3 py-2 shadow-sm" expand="lg">
@@ -57,7 +57,7 @@ const NavbarLink = function ({ userId }) {
         {/* LinkedIn logo */}
         <Navbar.Brand href="#">
           <img
-            src={user ? user.image : "https://via.placeholder.com/30"}
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/800px-LinkedIn_icon.svg.png"
             alt="LinkedIn"
             width="30"
             height="30"
@@ -95,7 +95,7 @@ const NavbarLink = function ({ userId }) {
             title={
               <span className="d-inline-flex align-items-center">
                 <img
-                  src={user ? user.image : "https://via.placeholder.com/30"}
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjPkfTSbix4g4EPv42EinPjh0XLddeKySRbA&s"
                   alt="Tu"
                   width="30"
                   height="30"
