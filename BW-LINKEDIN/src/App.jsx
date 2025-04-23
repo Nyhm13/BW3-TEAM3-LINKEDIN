@@ -5,6 +5,7 @@ import Experiences from "./Components/Experiences";
 import { useState } from "react";
 import Sidebar from "./Components/Sidebar";
 import ProfileCard from "./Components/ProfileCard";
+import NavbarLink from "./Components/NavbarLink";
 
 function App() {
   // se l'id è quello dell'utente autenticato ti permetterà di modificare altrimenti no
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <header>
-        
+        <NavbarLink />
       </header>
 
       <main>
@@ -30,7 +31,6 @@ function App() {
           authenticatedUserId={authenticatedUserId} 
         />
       </main>
-      <header></header>
 
       <ProfileCard />
 
