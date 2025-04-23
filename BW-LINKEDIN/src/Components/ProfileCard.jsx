@@ -4,9 +4,6 @@ import {
   Card,
   Spinner,
   Alert,
-  Container,
-  Row,
-  Col,
   Modal,
 } from "react-bootstrap";
 import {
@@ -18,19 +15,19 @@ import {
   Pencil,
 } from "lucide-react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./Sidebar";
 
 const token =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc";
 
-const ProfileCard = () => {
+const ProfileCard = ({ selectedUserId }) => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
-    fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
+    setLoading(true);
+    fetch(`https://striveschool-api.herokuapp.com/api/profile/${selectedUserId}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -50,7 +47,7 @@ const ProfileCard = () => {
         setError(err.message);
         setLoading(false);
       });
-  }, []);
+  }, [selectedUserId]);  
 
   if (loading) return <Spinner animation="border" variant="primary" />;
   if (error) return <Alert variant="danger">{error}</Alert>;

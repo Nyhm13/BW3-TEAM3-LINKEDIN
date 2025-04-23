@@ -19,7 +19,7 @@ const Sidebar = ({ onSegui }) => {
   const [profili, setProfili] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [randomProfiles, setRandomProfiles] = useState([]); // Stato per i profili casuali
+  const [randomProfiles, setRandomProfiles] = useState([]);
   const [similarProfiles, setSimilarProfiles] = useState([]);
 
   const handleClose = () => setShow(false);
@@ -29,8 +29,8 @@ const Sidebar = ({ onSegui }) => {
   };
 
   const getRandomProfiles = (profiles, count) => {
-    const shuffled = [...profiles].sort(() => 0.5 - Math.random()); // Mescola l'array
-    return shuffled.slice(0, count); // Prendi i primi `count` elementi
+    const shuffled = [...profiles].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
   };
 
   //  funzione per passare l`id al componente app
@@ -90,7 +90,7 @@ const Sidebar = ({ onSegui }) => {
           <p>www.linkedin.com/in/TEAM3-CADIAMO-MALATI41a7ba253</p>
         </div>
       </div>
-      {/* INIZIO SECONDA SEZIONE */}
+
       <Card className="mt-4 border border-1 rounded-3 position-relative">
         <div
           className=" bg-secondary rounded-top-3 "
@@ -165,8 +165,7 @@ const Sidebar = ({ onSegui }) => {
           </a>
         </Card.Body>
       </Card>
-      {/* FINE SECONDA SEZIONE */}
-      {/* inizio terza  sezione  persone che potresti conoscere */}
+
       {profili && (
         <div className="p-3 border rounded-2 my-4 bg-white">
           <h4 className="text-start">Altri profili simili</h4>
@@ -257,14 +256,12 @@ const Sidebar = ({ onSegui }) => {
         </div>
       )}
 
-      {/* sezione publicità  */}
       <div className=" border rounded-2 mb-2">
         <Image
           className="w-100 rounded-2"
           src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
         />
       </div>
-      {/* fine sezione publicità */}
     </>
   );
 };
