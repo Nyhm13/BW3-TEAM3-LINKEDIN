@@ -1,37 +1,37 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap-icons/font/bootstrap-icons.css";
-import { useState } from "react";
-import { Container, Row, Col } from "react-bootstrap";
+import "./App.css"
+import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap-icons/font/bootstrap-icons.css"
+import { useState } from "react"
+import { Container, Row, Col } from "react-bootstrap"
 
-import NavbarLink from "./Components/NavbarLink";
-import ProfileCard from "./Components/ProfileCard";
-import Experiences from "./Components/Experiences";
-import StatiComponents from "./Components/StatiComponents";
-import Sidebar from "./Components/Sidebar";
-import Footer from "./Components/Footer";
+import NavbarLink from "./Components/NavbarLink"
+import ProfileCard from "./Components/ProfileCard"
+import Experiences from "./Components/Experiences"
+import StatiComponents from "./Components/StatiComponents"
+import Sidebar from "./Components/Sidebar"
+import Footer from "./Components/Footer"
 
 function App() {
   const [selectedUserId, setSelectedUserId] = useState(
     "6808c6f995878f0015f4a1d5"
-  );
-  const [authenticatedUserId] = useState("6808c6f995878f0015f4a1d5");
+  )
+  const [authenticatedUserId] = useState("6808c6f995878f0015f4a1d5")
 
   const handleUserSearch = (e) => {
-    setSelectedUserId(e.target.value);
-  };
+    setSelectedUserId(e.target.value)
+  }
 
   const handleSegui = (id) => {
-    setSelectedUserId(id);
-    console.log("ID selezionato:", id);
-  };
+    setSelectedUserId(id)
+    console.log("ID selezionato:", id)
+  }
 
   const handleHome = () => {
-    setSelectedUserId(authenticatedUserId);
-  };
+    setSelectedUserId(authenticatedUserId)
+  }
   return (
     <>
-      <header>
+      <header className="sticky-top">
         <NavbarLink goHome={handleHome} />
       </header>
 
@@ -55,7 +55,7 @@ function App() {
 
       <Footer />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

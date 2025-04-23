@@ -58,7 +58,7 @@ const ProfileCard = ({ selectedUserId }) => {
       <Card className="profile-card shadow-sm rounded-3 overflow-hidden mb-3 flex-grow-1">
         <div className="profile-cover position-relative">
           <img
-            src="https://www.euroformation.it/wp-content/uploads/2024/09/evoluzione_lavoro-460x202.webp"
+            src="https://www.cvsl.it/wp-content/uploads/2021/05/gatto-che-soffia.png"
             alt="cover"
             className="cover-img"
           />

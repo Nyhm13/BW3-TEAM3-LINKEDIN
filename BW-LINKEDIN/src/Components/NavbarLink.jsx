@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useState, useEffect } from "react"
+import "bootstrap/dist/css/bootstrap.min.css"
 import {
   Navbar,
   Form,
@@ -7,14 +7,14 @@ import {
   Nav,
   Container,
   NavDropdown,
-} from "react-bootstrap";
+} from "react-bootstrap"
 import {
   HouseFill,
   PeopleFill,
   BriefcaseFill,
   ChatDotsFill,
   BellFill,
-} from "react-bootstrap-icons";
+} from "react-bootstrap-icons"
 
 const NavbarLink = function ({ goHome }) {
   // const Token =
@@ -121,7 +121,7 @@ const NavbarLink = function ({ goHome }) {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  );
-};
+  )
+}
 
-export default NavbarLink;
+export default NavbarLink
