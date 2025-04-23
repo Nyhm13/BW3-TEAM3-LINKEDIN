@@ -3,7 +3,7 @@ import { Button, Form, Modal, Spinner } from "react-bootstrap"
 import experienceIcon from "../assets/linkedin.jpg"
 
 const Experiences = ({ userId, authenticatedUserId }) => {
-  const token = "INSERITE_IL_VOSTRO_BEARER_TOKEN" //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
+  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3NjQyY2Q0NTE4MTAwMTVjZTgzZDYiLCJpYXQiOjE3NDUzMTczMTYsImV4cCI6MTc0NjUyNjkxNn0.nHOAC5onf9T1D7p9PYxqLaTg_SDC8fL1tpt-CaUb_eY" //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
   const [experiences, setExperiences] = useState([])
   const [showModal, setShowModal] = useState(false)
   const [formData, setFormData] = useState({
