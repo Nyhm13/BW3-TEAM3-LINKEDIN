@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 import {
   Button,
   Card,
@@ -8,7 +8,7 @@ import {
   Row,
   Col,
   Modal,
-} from "react-bootstrap";
+} from "react-bootstrap"
 import {
   ShieldCheck,
   GraduationCap,
@@ -16,18 +16,18 @@ import {
   MapPin,
   Briefcase,
   Pencil,
-} from "lucide-react";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Sidebar from "./Sidebar";
+} from "lucide-react"
+import "bootstrap/dist/css/bootstrap.min.css"
+import Sidebar from "./Sidebar"
 
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3Njk1YmQ0NTE4MTAwMTVjZTgzZDkiLCJpYXQiOjE3NDUzMTYxODgsImV4cCI6MTc0NjUyNTc4OH0.D0FW8gFj72D33GaWdePjMUiQln-mKlY03qaU5Cd0ccc"
 
 const ProfileCard = () => {
-  const [profile, setProfile] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-  const [showModal, setShowModal] = useState(false);
+  const [profile, setProfile] = useState(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
+  const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
     fetch("https://striveschool-api.herokuapp.com/api/profile/me", {
@@ -37,31 +37,31 @@ const ProfileCard = () => {
     })
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          return response.json()
         } else {
-          throw new Error("Errore nel recupero del profilo");
+          throw new Error("Errore nel recupero del profilo")
         }
       })
       .then((data) => {
-        setProfile(data);
-        setLoading(false);
+        setProfile(data)
+        setLoading(false)
       })
       .catch((err) => {
-        setError(err.message);
-        setLoading(false);
-      });
-  }, []);
+        setError(err.message)
+        setLoading(false)
+      })
+  }, [])
 
-  if (loading) return <Spinner animation="border" variant="primary" />;
-  if (error) return <Alert variant="danger">{error}</Alert>;
-  if (!profile) return null;
+  if (loading) return <Spinner animation="border" variant="primary" />
+  if (error) return <Alert variant="danger">{error}</Alert>
+  if (!profile) return null
 
   return (
     <>
       <Card className="profile-card shadow-sm rounded-3 overflow-hidden mb-3 flex-grow-1">
         <div className="profile-cover position-relative">
           <img
-            src="https://www.placecats.com/400/400"
+            src="https://www.placecats.com/400/160"
             alt="cover"
             className="cover-img"
           />
@@ -213,7 +213,7 @@ const ProfileCard = () => {
         </Modal.Footer>
       </Modal>
     </>
-  );
-};
+  )
+}
 
-export default ProfileCard;
+export default ProfileCard

@@ -1,37 +1,38 @@
-import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
+import Button from "react-bootstrap/Button"
+import Col from "react-bootstrap/Col"
 
-import Card from "react-bootstrap/Card";
-import Modal from "react-bootstrap/Modal";
-import { useEffect, useState } from "react";
-import Image from "react-bootstrap/Image";
-import Alert from "react-bootstrap/Alert";
-import Spinner from "react-bootstrap/Spinner";
+import Card from "react-bootstrap/Card"
+import Modal from "react-bootstrap/Modal"
+import { useEffect, useState } from "react"
+import Image from "react-bootstrap/Image"
+import Alert from "react-bootstrap/Alert"
+import Spinner from "react-bootstrap/Spinner"
+import { Link } from "react-router-dom"
 
 const Sidebar = () => {
   const Token =
-    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
+    "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4"
 
-  const URL = "https://striveschool-api.herokuapp.com/api/profile/";
+  const URL = "https://striveschool-api.herokuapp.com/api/profile/"
 
-  const [show, setShow] = useState(false);
-  const [smShow, setSmShow] = useState(false);
-  const [profili, setProfili] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(false);
-  const [randomProfiles, setRandomProfiles] = useState([]); // Stato per i profili casuali
-  const [similarProfiles, setSimilarProfiles] = useState([]);
+  const [show, setShow] = useState(false)
+  const [smShow, setSmShow] = useState(false)
+  const [profili, setProfili] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const [randomProfiles, setRandomProfiles] = useState([]) // Stato per i profili casuali
+  const [similarProfiles, setSimilarProfiles] = useState([])
 
-  const handleClose = () => setShow(false);
+  const handleClose = () => setShow(false)
   const handleShow = () => {
-    setRandomProfiles(getRandomProfiles(profili, 20));
-    setShow(true);
-  };
+    setRandomProfiles(getRandomProfiles(profili, 20))
+    setShow(true)
+  }
 
   const getRandomProfiles = (profiles, count) => {
-    const shuffled = [...profiles].sort(() => 0.5 - Math.random()); // Mescola l'array
-    return shuffled.slice(0, count); // Prendi i primi `count` elementi
-  };
+    const shuffled = [...profiles].sort(() => 0.5 - Math.random()) // Mescola l'array
+    return shuffled.slice(0, count) // Prendi i primi `count` elementi
+  }
 
   const fetchData = () => {
     fetch(URL, {
@@ -42,27 +43,27 @@ const Sidebar = () => {
     })
       .then((response) => {
         if (response.ok) {
-          return response.json();
+          return response.json()
         } else {
-          throw new Error("ERRORE");
+          throw new Error("ERRORE")
         }
       })
       .then((data) => {
-        console.log("DATI DALLA FETCH", data);
-        setProfili(data);
-        setSimilarProfiles(getRandomProfiles(data, 5));
-        setLoading(false);
+        console.log("DATI DALLA FETCH", data)
+        setProfili(data)
+        setSimilarProfiles(getRandomProfiles(data, 5))
+        setLoading(false)
       })
       .catch((error) => {
-        console.log("ERRORE NELLA FETCH", error);
-        setError(true);
-        setLoading(false);
-      });
-  };
+        console.log("ERRORE NELLA FETCH", error)
+        setError(true)
+        setLoading(false)
+      })
+  }
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    fetchData()
+  }, [])
 
   return (
     <>
@@ -110,7 +111,7 @@ const Sidebar = () => {
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body className="d-flex align-items-center gap-3">
-                <i class="bi bi-info-square-fill fs-4 text-secondary"></i>
+                <i className="bi bi-info-square-fill fs-4 text-secondary"></i>
                 <div>
                   <small className="mb-0 fw-bold text-nowrap   text-black">
                     Perche vedo questo annuncio?
@@ -121,7 +122,7 @@ const Sidebar = () => {
                 </div>
               </Modal.Body>
               <Modal.Body className="d-flex align-items-center gap-3">
-                <i class="bi bi-eye-slash-fill fs-4 text-secondary"></i>
+                <i className="bi bi-eye-slash-fill fs-4 text-secondary"></i>
                 <div>
                   <small className="mb-0 fw-bold text-nowrap   text-black">
                     Perche vedo questo annuncio?
@@ -240,7 +241,7 @@ const Sidebar = () => {
                           </Button>
                         </div>
                       </div>
-                    );
+                    )
                   })}
               </Modal.Body>
             </Modal>
@@ -257,7 +258,7 @@ const Sidebar = () => {
       </div>
       {/* fine sezione publicità */}
     </>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar
