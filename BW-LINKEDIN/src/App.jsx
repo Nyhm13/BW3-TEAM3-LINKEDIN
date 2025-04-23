@@ -32,9 +32,7 @@ function App() {
         />
       </main>
       <header></header>
-
       <ProfileCard />
-
       <Footer />
     </>
   );
