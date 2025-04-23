@@ -8,7 +8,7 @@ import Image from "react-bootstrap/Image";
 import Alert from "react-bootstrap/Alert";
 import Spinner from "react-bootstrap/Spinner";
 
-const Sidebar = () => {
+const Sidebar = ({ onSelectProfile }) => {
   const Token =
     "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
 
@@ -19,7 +19,7 @@ const Sidebar = () => {
   const [profili, setProfili] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const [randomProfiles, setRandomProfiles] = useState([]); // Stato per i profili casuali
+  const [randomProfiles, setRandomProfiles] = useState([]); 
   const [similarProfiles, setSimilarProfiles] = useState([]);
 
   const handleClose = () => setShow(false);
@@ -29,8 +29,8 @@ const Sidebar = () => {
   };
 
   const getRandomProfiles = (profiles, count) => {
-    const shuffled = [...profiles].sort(() => 0.5 - Math.random()); // Mescola l'array
-    return shuffled.slice(0, count); // Prendi i primi `count` elementi
+    const shuffled = [...profiles].sort(() => 0.5 - Math.random()); 
+    return shuffled.slice(0, count); 
   };
 
   const fetchData = () => {
@@ -83,7 +83,8 @@ const Sidebar = () => {
           <p>www.linkedin.com/in/ioan-octavian-radulescu-41a7ba253</p>
         </div>
       </div>
-      {/* INIZIO SECONDA SEZIONE */}
+    
+    
       <Card className="mt-4 border border-1 rounded-3 position-relative">
         <div
           className=" bg-secondary rounded-top-3 "
@@ -158,8 +159,8 @@ const Sidebar = () => {
           </a>
         </Card.Body>
       </Card>
-      {/* FINE SECONDA SEZIONE */}
-      {/* inizio terza  sezione  persone che potresti conoscere */}
+    
+     
       {profili && (
         <div className="p-3 border rounded-2 my-4 bg-white">
           <h4 className="text-start">Altri profili simili</h4>
@@ -171,29 +172,36 @@ const Sidebar = () => {
             )}
             {profili && (
               <div>
-                {similarProfiles.map((obj) => (
-                  <div className="d-flex gap-2 border-bottom p-2" key={obj._id}>
-                    <div>
-                      <Image
-                        roundedCircle
-                        className="img-side "
-                        src={obj.image}
-                      />
-                    </div>
-                    <div className="flex-grow-1 text-start">
-                      <h5 className="m-0">
-                        {obj.name} {obj.surname}
-                      </h5>
-                      <p className="mb-2">{obj.title}</p>
-                      <Button
-                        className="mb-3 rounded-pill px-4 py-1"
-                        variant="outline-secondary"
-                      >
-                        <i className="bi bi-plus"></i> Segui
-                      </Button>
-                    </div>
-                  </div>
-                ))}
+{similarProfiles.map((obj) => (
+  <div
+    className="d-flex gap-2 border-bottom p-2"
+    key={obj._id}
+    onClick={() => onSelectProfile(obj._id)} 
+    style={{ cursor: "pointer" }} 
+  >
+    <div>
+      <Image
+        roundedCircle
+        className="img-side"
+        src={obj.image}
+      />
+    </div>
+    <div className="flex-grow-1 text-start">
+      <h5 className="m-0">
+        {obj.name} {obj.surname}
+      </h5>
+      <p className="mb-2">{obj.title}</p>
+      <Button
+        className="mb-3 rounded-pill px-4 py-1"
+        variant="outline-secondary"
+        onClick={(e) => e.stopPropagation()} 
+      >
+        <i className="bi bi-plus"></i> Segui
+      </Button>
+    </div>
+  </div>
+))}
+
               </div>
             )}
           </div>
@@ -248,14 +256,14 @@ const Sidebar = () => {
         </div>
       )}
 
-      {/* sezione publicità  */}
+      
       <div className=" border rounded-2 mb-2">
         <Image
           className="w-100 rounded-2"
           src="https://media.licdn.com/media/AAYQAgTPAAgAAQAAAAAAADVuOvKzTF-3RD6j-qFPqhubBQ.png"
         />
       </div>
-      {/* fine sezione publicità */}
+      
     </>
   );
 };
