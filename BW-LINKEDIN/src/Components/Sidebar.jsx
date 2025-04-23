@@ -21,6 +21,7 @@ const Sidebar = ({ onSegui }) => {
   const [error, setError] = useState(false);
   const [randomProfiles, setRandomProfiles] = useState([]);
   const [similarProfiles, setSimilarProfiles] = useState([]);
+  const [hideCard, setHideCard] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => {
@@ -91,7 +92,11 @@ const Sidebar = ({ onSegui }) => {
         </div>
       </div>
 
-      <Card className="mt-4 border border-1 rounded-3 position-relative">
+      <Card
+        className={`mt-4 border border-1 rounded-3 position-relative ${
+          hideCard ? "d-none" : ""
+        }`}
+      >
         <div
           className=" bg-secondary rounded-top-3 "
           style={{ height: "100px" }}
@@ -128,7 +133,13 @@ const Sidebar = ({ onSegui }) => {
                 </div>
               </Modal.Body>
               <Modal.Body className="d-flex align-items-center gap-3">
-                <i class="bi bi-eye-slash-fill fs-4 text-secondary"></i>
+                <Button
+                  style={{ backgroundColor: "transparent" }}
+                  className="border-0 p-0"
+                  onClick={() => setHideCard(true)}
+                >
+                  <i class="bi bi-eye-slash-fill fs-4 text-secondary"></i>
+                </Button>
                 <div>
                   <small className="mb-0 fw-bold text-nowrap   text-black">
                     Perche vedo questo annuncio?
