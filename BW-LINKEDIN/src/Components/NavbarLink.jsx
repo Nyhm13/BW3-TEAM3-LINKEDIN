@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react"
-import "bootstrap/dist/css/bootstrap.min.css"
+import React, { useState, useEffect } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Navbar,
   Form,
@@ -7,16 +7,16 @@ import {
   Nav,
   Container,
   NavDropdown,
-} from "react-bootstrap"
+} from "react-bootstrap";
 import {
   HouseFill,
   PeopleFill,
   BriefcaseFill,
   ChatDotsFill,
   BellFill,
-} from "react-bootstrap-icons"
+} from "react-bootstrap-icons";
 
-const NavbarLink = function ({ userId }) {
+const NavbarLink = function ({ goHome }) {
   // const Token =
   //   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3OTFlZmQ0NTE4MTAwMTVjZTgzZTQiLCJpYXQiOjE3NDUzMjY1NzUsImV4cCI6MTc0NjUzNjE3NX0.LAcndcnlBtqs08smmj443rFm47QmBNEHMa9lAYJI5T4";
 
@@ -55,7 +55,7 @@ const NavbarLink = function ({ userId }) {
     <Navbar bg="light" expand="lg" className="px-3 py-2 shadow-sm">
       <Container fluid>
         {/* LinkedIn logo */}
-        <Navbar.Brand href="#">
+        <Navbar.Brand href="#" onClick={goHome} style={{ cursor: "pointer" }}>
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/LinkedIn_icon.svg/800px-LinkedIn_icon.svg.png"
             alt="LinkedIn"
@@ -121,7 +121,7 @@ const NavbarLink = function ({ userId }) {
         </Navbar.Collapse>
       </Container>
     </Navbar>
-  )
-}
+  );
+};
 
-export default NavbarLink
+export default NavbarLink;
