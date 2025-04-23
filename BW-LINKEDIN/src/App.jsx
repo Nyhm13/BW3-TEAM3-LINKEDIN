@@ -26,10 +26,13 @@ function App() {
     console.log("ID selezionato:", id);
   };
 
+  const handleHome = () => {
+    setSelectedUserId(authenticatedUserId);
+  };
   return (
     <>
       <header>
-        <NavbarLink userId={selectedUserId} />
+        <NavbarLink goHome={handleHome} />
       </header>
 
       <main>
