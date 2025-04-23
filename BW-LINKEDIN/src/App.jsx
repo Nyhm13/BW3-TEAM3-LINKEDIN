@@ -5,6 +5,7 @@ import Experiences from "./Components/Experiences";
 import { useState } from "react";
 import Sidebar from "./Components/Sidebar";
 import ProfileCard from "./Components/ProfileCard";
+import NavbarLink from "./Components/NavbarLink";
 import Footer from "./Components/Footer";
 
 function App() {
@@ -23,7 +24,9 @@ function App() {
 
   return (
     <>
-      <header></header>
+      <header>
+        <NavbarLink />
+      </header>
 
       <main>
         <Experiences
@@ -31,7 +34,6 @@ function App() {
           authenticatedUserId={authenticatedUserId}
         />
       </main>
-      <header></header>
       <ProfileCard />
       <Footer />
     </>
