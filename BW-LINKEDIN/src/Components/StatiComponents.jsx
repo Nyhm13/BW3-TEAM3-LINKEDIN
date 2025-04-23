@@ -11,10 +11,10 @@ function StatiComponents() {
           <Card.Title>Consigliato per te</Card.Title>
           <p className="fs-7">
             {" "}
-            <i class="bi bi-eye-fill"></i> Solo per te
+            <i className="bi bi-eye-fill"></i> Solo per te
           </p>
           <div className="d-flex">
-            <i class="bi bi-person-vcard fs-1 text-primary"> </i>
+            <i className="bi bi-person-vcard fs-1 text-primary"> </i>
             <Card.Subtitle className="mb-2 text-muted m-3">
               {" "}
               Scrivi un riepilogo per mettere in evidenza la tua personalità o
@@ -40,13 +40,14 @@ function StatiComponents() {
           <Card.Title>Analisi</Card.Title>
           <p className="fs-7">
             {" "}
-            <i class="bi bi-eye-fill"></i> Solo per te
+            <i className="bi bi-eye-fill"></i> Solo per te
           </p>
           <section className="d-flex">
             <div className="d-flex flex-column me-5">
               <Card.Subtitle className="mb-2 text-muted">
                 {" "}
-                <i class="bi bi-people-fill"> </i> 0 Visualizzazioni del profilo{" "}
+                <i className="bi bi-people-fill"> </i> 0 Visualizzazioni del
+                profilo{" "}
               </Card.Subtitle>
               <p> Aggiorna il profilo per attrarre visitatori</p>
               <p> Crea un post per aumentare l'</p>
@@ -54,7 +55,7 @@ function StatiComponents() {
             <div className="d-flex flex-column">
               <Card.Subtitle className="mb-2 text-muted">
                 {" "}
-                <i class="bi bi-bar-chart-line-fill"> </i> 0 impressioni del
+                <i className="bi bi-bar-chart-line-fill"> </i> 0 impressioni del
                 post
               </Card.Subtitle>
               <p> Crea un post per aumentare l'interesse.</p>
@@ -64,7 +65,7 @@ function StatiComponents() {
           <section className="d-flex align-items-center justify-content-center border-top border-1 border-secondary">
             <Card.Link href="#" className="text-decoration-none text-dark mt-2">
               Mostra tutte le analisi{" "}
-              <i class="bi bi-arrow-right text-dark"> </i>
+              <i className="bi bi-arrow-right text-dark"> </i>
             </Card.Link>
           </section>
         </Card.Body>
@@ -78,7 +79,7 @@ function StatiComponents() {
             <Button className="btn rounded-5 bg-white text-primary flex">
               Crea un post
             </Button>
-            <i class="bi bi-pencil text-dark fs-5 ms-3"></i>
+            <i className="bi bi-pencil text-dark fs-5 ms-3"></i>
           </section>
 
           <p className="fs-7 text-primary"> 1 follower</p>
@@ -94,7 +95,7 @@ function StatiComponents() {
           <section className="d-flex align-items-center justify-content-center border-top border-1 border-secondary">
             <Card.Link href="#" className="text-decoration-none text-dark mt-2">
               Mostra tutte le attività{" "}
-              <i class="bi bi-arrow-right text-dark"> </i>
+              <i className="bi bi-arrow-right text-dark"> </i>
             </Card.Link>
           </section>
         </Card.Body>
