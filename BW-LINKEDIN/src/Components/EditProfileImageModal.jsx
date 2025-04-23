@@ -15,7 +15,8 @@ const EditProfileImageModal = ({
 
     const formData = new FormData()
     formData.append("profile", selectedImage)
-
+    console.log("userId:", userId)
+    console.log("token:", token)
     try {
       const res = await fetch(
         `https://striveschool-api.herokuapp.com/api/profile/${userId}/picture`,
