@@ -58,7 +58,7 @@ const ProfileCard = ({ selectedUserId }) => {
       <Card className="profile-card shadow-sm rounded-3 overflow-hidden mb-3 flex-grow-1">
         <div className="profile-cover position-relative">
           <img
-            src="https://www.cvsl.it/wp-content/uploads/2021/05/gatto-che-soffia.png"
+            src="https://www.animigo.it/assets/animigo/animigo.it/images/pages/big/seo-big-image-1696188778.jpg"
             alt="cover"
             className="cover-img"
           />
