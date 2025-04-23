@@ -1,4 +1,4 @@
-import { Container, Row, Col, Dropdown, DropdownButton } from "react-bootstrap"
+import { Container, Row, Col, Dropdown, DropdownButton } from "react-bootstrap";
 // {const tokenGiulia = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA3ZTk1MTk1ODc4ZjAwMTVmNGExYjMiLCJpYXQiOjE3NDUzNDg5NDUsImV4cCI6MTc0NjU1ODU0NX0.TCYZONnIEg4lACAQEL-d-N21RUq8GXegfZ7a6SO315o'}
 const Footer = function () {
   return (
@@ -94,7 +94,7 @@ const Footer = function () {
         </Row>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

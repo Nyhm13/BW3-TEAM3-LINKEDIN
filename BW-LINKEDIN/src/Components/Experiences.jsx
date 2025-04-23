@@ -3,9 +3,10 @@ import { Button, Form, Modal, Spinner } from "react-bootstrap";
 import experienceIcon from "../assets/linkedin.jpg";
 
 const Experiences = ({ userId, authenticatedUserId }) => {
-  const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4YzZmOTk1ODc4ZjAwMTVmNGExZDUiLCJpYXQiOjE3NDU0MDU2ODksImV4cCI6MTc0NjYxNTI4OX0.iBpPVV0hN0e7TTBVgJCa-YeUaqzk_gJ1INGFfROYK1k" //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
-  const [experiences, setExperiences] = useState([])
-  const [showModal, setShowModal] = useState(false)
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4YzZmOTk1ODc4ZjAwMTVmNGExZDUiLCJpYXQiOjE3NDU0MDU2ODksImV4cCI6MTc0NjYxNTI4OX0.iBpPVV0hN0e7TTBVgJCa-YeUaqzk_gJ1INGFfROYK1k"; //PER RENDERLO FUNZIONANTE INSERITE IL VOSTRO TOKEN
+  const [experiences, setExperiences] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   const [formData, setFormData] = useState({
     role: "",
     company: "",

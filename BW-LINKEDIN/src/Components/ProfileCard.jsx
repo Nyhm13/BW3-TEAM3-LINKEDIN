@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react"
-import { Button, Card, Spinner, Alert, Modal } from "react-bootstrap"
+import React, { useEffect, useState } from "react";
+import { Button, Card, Spinner, Alert, Modal } from "react-bootstrap";
 import {
   ShieldCheck,
   GraduationCap,
@@ -7,24 +7,24 @@ import {
   MapPin,
   Briefcase,
   Pencil,
-} from "lucide-react"
-import "bootstrap/dist/css/bootstrap.min.css"
-import EditProfileImageModal from "./EditProfileImageModal"
-import CustomSpinner from "./CustomSpinner"
+} from "lucide-react";
+import "bootstrap/dist/css/bootstrap.min.css";
+import EditProfileImageModal from "./EditProfileImageModal";
+import CustomSpinner from "./CustomSpinner";
 
 const token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4YzZmOTk1ODc4ZjAwMTVmNGExZDUiLCJpYXQiOjE3NDU0MDU2ODksImV4cCI6MTc0NjYxNTI4OX0.iBpPVV0hN0e7TTBVgJCa-YeUaqzk_gJ1INGFfROYK1k"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2ODA4YzZmOTk1ODc4ZjAwMTVmNGExZDUiLCJpYXQiOjE3NDU0MDU2ODksImV4cCI6MTc0NjYxNTI4OX0.iBpPVV0hN0e7TTBVgJCa-YeUaqzk_gJ1INGFfROYK1k";
 
 const ProfileCard = ({ selectedUserId }) => {
-  const [profile, setProfile] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [showModal, setShowModal] = useState(false)
-  const [showImageModal, setShowImageModal] = useState(false)
-  const loggedInUserId = "6808c6f995878f0015f4a1d5"
-  console.log("Selected User ID:", selectedUserId)
+  const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
+  const [showImageModal, setShowImageModal] = useState(false);
+  const loggedInUserId = "6808c6f995878f0015f4a1d5";
+  console.log("Selected User ID:", selectedUserId);
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch(
       `https://striveschool-api.herokuapp.com/api/profile/${selectedUserId}`,
       {
@@ -35,29 +35,29 @@ const ProfileCard = ({ selectedUserId }) => {
     )
       .then((response) => {
         if (response.ok) {
-          return response.json()
+          return response.json();
         } else {
-          throw new Error("Errore nel recupero del profilo")
+          throw new Error("Errore nel recupero del profilo");
         }
       })
       .then((data) => {
-        setProfile(data)
-        setLoading(false)
+        setProfile(data);
+        setLoading(false);
       })
       .catch((err) => {
-        setError(err.message)
-        setLoading(false)
-      })
-  }, [selectedUserId])
+        setError(err.message);
+        setLoading(false);
+      });
+  }, [selectedUserId]);
 
-  if (loading) return <CustomSpinner />
-  if (error) return <Alert variant="danger">{error}</Alert>
-  if (!profile) return null
+  if (loading) return <CustomSpinner />;
+  if (error) return <Alert variant="danger">{error}</Alert>;
+  if (!profile) return null;
 
   return (
     <>
       <Card className="profile-card shadow-sm rounded-3 overflow-hidden mb-3 flex-grow-1">
-        <div className="profile-cover position-relative">
+        <div className="profile-cover position-relative flip-container">
           <img
             src="https://www.animigo.it/assets/animigo/animigo.it/images/pages/big/seo-big-image-1696188778.jpg"
             alt="cover"
@@ -74,7 +74,7 @@ const ProfileCard = ({ selectedUserId }) => {
           <img
             src={profile.image || "https://www.placebears.com/400/400"}
             alt={`${profile.name} ${profile.surname}`}
-            className="profile-img rounded-circle border border-white"
+            className="profile-img rounded-circle border border-white spinner flippable-image"
           />
         </div>
 
@@ -224,7 +224,7 @@ const ProfileCard = ({ selectedUserId }) => {
         />
       )}
     </>
-  )
-}
+  );
+};
 
-export default ProfileCard
+export default ProfileCard;
